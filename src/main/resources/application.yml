@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: multi-tenant-platform
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+  sql:
+    init:
+      mode: never
+
+multitenancy:
+  tenants: alpha,beta,gamma
+  default-tenant: alpha
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.sangiya: INFO
